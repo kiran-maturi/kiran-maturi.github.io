@@ -1,0 +1,111 @@
+/* Landing page for the kid apps. No JavaScript at all: two links and some
+ * drawing, which is all a page like this should need. */
+
+:root {
+  --paper: #fff7e8;
+  --card: #ffffff;
+  --ink: #33261a;
+  --muted: rgba(51, 38, 26, 0.68);
+  --shadow: rgba(80, 52, 20, 0.22);
+  --accent: #f4763b;
+
+  /* Talking Cat's own colour-mode palette, so the card art is the real cat. */
+  --cat-ink: #241c14;
+  --cat-paper: #fdf6e9;
+  --cat-accent: #e8748a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Baloo 2", "Comic Sans MS", "Trebuchet MS", system-ui, -apple-system, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(20px, 5vw, 48px) clamp(16px, 4vw, 32px) 40px;
+}
+
+header { text-align: center; margin-bottom: clamp(20px, 4vw, 36px); }
+h1 { margin: 0 0 8px; font-size: clamp(2rem, 8vw, 3rem); }
+.blurb { margin: 0 auto; max-width: 46ch; color: var(--muted); font-size: clamp(1rem, 3.2vw, 1.15rem); }
+
+.cards {
+  display: grid;
+  gap: clamp(16px, 3vw, 24px);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+}
+
+/* The whole card is the link — small fingers miss small targets. */
+.card {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 28px;
+  background: var(--card);
+  box-shadow: 0 5px 0 var(--shadow);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 8px 0 var(--shadow); }
+.card:active { transform: translateY(4px); box-shadow: none; }
+.card:focus-visible { outline: 4px solid var(--accent); outline-offset: 3px; }
+
+.art {
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  padding: 10px;
+}
+.art svg { width: 100%; height: 100%; display: block; }
+.cat-card .art { background: var(--cat-paper); }
+.puzzle-card .art { background: var(--paper); }
+
+.label { display: grid; gap: 6px; padding: 0 4px 4px; }
+.name { font-size: clamp(1.2rem, 4vw, 1.5rem); font-weight: 800; }
+.what { color: var(--muted); font-size: 0.97rem; line-height: 1.45; }
+
+/* Cat, drawn with the same class names talkingcat uses. */
+.cat .ink { fill: var(--cat-ink); }
+.cat .paper { fill: var(--cat-paper); }
+.cat .accent { fill: var(--cat-accent); }
+.cat .filled { fill: var(--cat-paper); stroke: var(--cat-ink); stroke-width: 7; stroke-linejoin: round; }
+.cat .stroke { fill: none; stroke: var(--cat-ink); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+.cat .thin { stroke-width: 5; }
+.cat .nose { stroke: var(--cat-ink); stroke-width: 5; stroke-linejoin: round; }
+
+footer {
+  margin-top: clamp(24px, 5vw, 40px);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+footer p { margin: 0 auto 8px; max-width: 54ch; }
+footer a { color: inherit; }
+.source { opacity: 0.8; }
+
+/* E Ink and other monochrome panels: colour buys nothing, contrast does, and
+   a transition only smears. */
+@media (monochrome), (prefers-contrast: more) {
+  :root { --paper: #fff; --cat-paper: #fff; --cat-accent: #fff; --muted: #000; --ink: #000; --cat-ink: #000; }
+  .card { border: 3px solid #000; box-shadow: none; transition: none; }
+  .card:hover, .card:active { transform: none; box-shadow: none; }
+  .art { border: 2px solid #000; }
+  .cat .accent { stroke: #000; stroke-width: 5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}

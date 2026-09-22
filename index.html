@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff7e8">
+<meta name="description" content="Little browser toys for small kids. No ads, no accounts, no sign-in, and they work offline.">
+<title>Kid Apps</title>
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main>
+  <header>
+    <h1>Kid Apps</h1>
+    <p class="blurb">Little browser toys. No ads, no accounts, nothing to install — and they keep working with the wifi off.</p>
+  </header>
+
+  <!-- Each whole card is the tap target: small fingers miss small links. -->
+  <nav class="cards">
+    <a class="card cat-card" href="https://kiran-maturi.github.io/talkingcat/">
+      <span class="art">
+        <svg class="cat" viewBox="20 10 360 300" role="img" aria-label="A cartoon cat">
+          <g class="ears">
+          <path class="filled" d="M100 132 L 96 28 L 178 74 Z"/>
+          <path class="filled" d="M300 132 L 304 28 L 222 74 Z"/>
+          <path class="accent" d="M111 108 L 109 50 L 154 76 Z"/>
+          <path class="accent" d="M289 108 L 291 50 L 246 76 Z"/>
+        </g>
+        <circle class="filled" cx="200" cy="190" r="120"/>
+        <ellipse class="filled" cx="152" cy="178" rx="28" ry="32"/>
+        <ellipse class="filled" cx="248" cy="178" rx="28" ry="32"/>
+        <circle class="ink" cx="152" cy="180" r="14"/>
+        <circle class="ink" cx="248" cy="180" r="14"/>
+        <circle class="paper" cx="146" cy="172" r="5"/>
+        <circle class="paper" cx="242" cy="172" r="5"/>
+        <path class="stroke thin" d="M152 252 L 62 232 M150 266 L 54 266 M152 280 L 62 300"/>
+        <path class="stroke thin" d="M248 252 L 338 232 M250 266 L 346 266 M248 280 L 338 300"/>
+        <path class="accent nose" d="M180 222 Q 200 215 220 222 Q 214 240 200 247 Q 186 240 180 222 Z"/>
+        <path class="stroke" d="M200 247 v15 M200 262 Q 180 286 160 264 M200 262 Q 220 286 240 264"/>
+        </svg>
+      </span>
+      <span class="label">
+        <span class="name">🐱 Talking Cat</span>
+        <span class="what">Say something and the cat says it back in a silly voice. Poke it to see what it does.</span>
+      </span>
+    </a>
+
+    <a class="card puzzle-card" href="https://kiran-maturi.github.io/kidpuzzles/">
+      <span class="art">
+        <svg class="puzzle" viewBox="40 40 320 320" role="img" aria-label="Four jigsaw pieces">
+        <path d="M0.00 0.00L200.00 0.00L200.00 76.00C172.72 56.00 172.72 144.00 200.00 124.00L200.00 200.00L124.00 200.00C144.00 172.72 56.00 172.72 76.00 200.00L0.00 200.00L0.00 0.00Z" fill="#f4763b" stroke="var(--card)" stroke-width="7" stroke-linejoin="round"/>
+        <path d="M200.00 0.00L400.00 0.00L400.00 200.00L324.00 200.00C344.00 172.72 256.00 172.72 276.00 200.00L200.00 200.00L200.00 124.00C172.72 144.00 172.72 56.00 200.00 76.00L200.00 0.00Z" fill="#43a047" stroke="var(--card)" stroke-width="7" stroke-linejoin="round"/>
+        <path d="M0.00 200.00L76.00 200.00C56.00 172.72 144.00 172.72 124.00 200.00L200.00 200.00L200.00 276.00C227.28 256.00 227.28 344.00 200.00 324.00L200.00 400.00L0.00 400.00L0.00 200.00Z" fill="#42a5f5" stroke="var(--card)" stroke-width="7" stroke-linejoin="round"/>
+        <path d="M200.00 200.00L276.00 200.00C256.00 172.72 344.00 172.72 324.00 200.00L400.00 200.00L400.00 400.00L200.00 400.00L200.00 324.00C227.28 344.00 227.28 256.00 200.00 276.00L200.00 200.00Z" fill="#ffb300" stroke="var(--card)" stroke-width="7" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="label">
+        <span class="name">🧩 Puzzle Play</span>
+        <span class="what">Drag the pieces into the frame and the picture appears. 4 to 25 pieces, ages 3 to 10.</span>
+      </span>
+    </a>
+  </nav>
+
+  <footer>
+    <p>Both are hand-written HTML, CSS and JavaScript — no build step, no dependencies, and they run on an E Ink tablet as happily as on a phone.</p>
+    <p class="source">Source: <a href="https://github.com/kiran-maturi/talkingcat">talkingcat</a> · <a href="https://github.com/kiran-maturi/kidpuzzles">kidpuzzles</a></p>
+  </footer>
+</main>
+
+</body>
+</html>
